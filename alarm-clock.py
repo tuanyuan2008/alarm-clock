@@ -1,4 +1,19 @@
 # inspired by https://www.reddit.com/r/beginnerprojects/comments/4n9hne/project_idea_alarm_clock/
+<<<<<<< HEAD
+=======
+# **********************************************************
+#                             (_)(_)
+#                             /     \
+#                            /       |
+#                           /   \  * | - WARNING: MAY RING
+#             ________     /    /\__/   LATER THAN EXPECTED
+#     _      /        \   /    /
+#    / \    /  ____    \_/    /
+#   //\ \  /  /    \         /
+#   V  \ \/  /      \       /
+#       \___/        \_____/
+# ************************************************************
+>>>>>>> c9eb2dce857aba5faebc69c2e22d73771194c67e
 # Version 4.1
 
 from datetime import datetime
