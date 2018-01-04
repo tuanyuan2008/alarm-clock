@@ -1,16 +1,5 @@
 # inspired by https://www.reddit.com/r/beginnerprojects/comments/4n9hne/project_idea_alarm_clock/
-# **********************************************************
-#                             (_)(_)
-#                             /     \
-#                            /       |
-#                           /   \  * | - WARNING: MAY RING
-#             ________     /    /\__/   LATER THAN EXPECTED
-#     _      /        \   /    /
-#    / \    /  ____    \_/    /
-#   //\ \  /  /    \         /
-#   V  \ \/  /      \       /
-#       \___/        \_____/
-# ************************************************************
+# Version 4.1
 
 from datetime import datetime
 import random
