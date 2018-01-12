@@ -41,8 +41,8 @@ secs = delta_t.seconds + 1
 print("The current time is " + str(x) + ".")
 print("Your alarm will ring in " + str(delta_t) + ".")
 
-def play(url, time):
-    time.sleep(time)
+def play(url, times):
+    time.sleep(times)
     webbrowser.open(url)
     exit(0)
 
