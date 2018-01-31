@@ -5,45 +5,31 @@ from datetime import datetime
 import random
 import time
 import webbrowser
+import os
+
 
 songs = input("Please enter a textfile containing YouTube URLs: ")
 ringtones = []
 inputF = open(songs, "r")
 for line in inputF:
     ringtones.append(line.strip())
-
-yourtime = input("When do you want your alarm to ring? <hr> <min> <am/pm> ")
-
-if int(yourtime.strip().split()[0]) != 12:
-    if yourtime.strip().split()[2] == "am":
-        yourhour = int(yourtime.strip().split()[0])
-    else:
-        yourhour = (int(yourtime.strip().split()[0]) + 12) % 24
-else:
-    if yourtime.strip().split()[2] == "am":
-        yourhour = (int(yourtime.strip().split()[0]) + 12) % 24
-    else:
-        yourhour = int(yourtime.strip().split()[0])
-
-yourmin = int(yourtime.strip().split()[1])
-
 alarm = random.SystemRandom().choice(ringtones)
 
-x = datetime.today()
-if yourhour >= x.hour and yourmin > x.minute:
-    y = x.replace(day = x.day, hour = yourhour, minute = yourmin)
-else:
-    y = x.replace(day = x.day + 1, hour = yourhour, minute = yourmin)
-delta_t = y - x
 
-secs = delta_t.seconds + 1
+yourtime = input("When do you want your alarm to ring? <hr> <min> <am/pm> ")
+now = datetime.now()
+hour = yourtime.strip().split()[0]
+minute = yourtime.strip().split()[1]
+ampm = yourtime.strip().split()[2]
 
-print("The current time is " + str(x) + ".")
-print("Your alarm will ring in " + str(delta_t) + ".")
 
-def play(url, times):
-    time.sleep(times)
-    webbrowser.open(url)
-    exit(0)
+ringTime = str(now.strftime("%B")[0:3]) + " " + str(now.day) + " " + str(now.year) + " " + str(hour) + ":" + str(minute) + str(ampm).upper()
+ringTimeDatetime = datetime.strptime(ringTime, '%b %d %Y %I:%M%p')
+timeDifference = ringTimeDatetime - now
 
-play(alarm, secs)
+
+print("The current time is " + str(now) + ".")
+print("Your alarm will ring at " + hour + ":" + minute + " " + ampm + ".")
+time.sleep(timeDifference.total_seconds())
+print("Your alarm rang at " + str(datetime.now()))
+webbrowser.open(alarm)
